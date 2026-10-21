@@ -66,14 +66,10 @@ button{cursor:pointer}
 .inicio-num{width:34px;height:34px;border-radius:50%;background:#EAF4EC;color:#166534;display:grid;place-items:center;font-weight:900;font-size:.95rem}
 .inicio-pasos h2{margin:0 0 .2rem;font-size:1rem;line-height:1.35;color:#0F172A}
 .inicio-pasos p{margin:0;font-size:.92rem;line-height:1.55;color:#475569}
-.tutorial-lista{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
-.tutorial-lista li{position:relative;padding:.55rem .7rem .55rem 1.65rem;background:#FFF;border:1px solid #E2E8F0;border-radius:8px;font-size:.9rem;line-height:1.5;color:#334155}
-.tutorial-lista li::before{content:"";position:absolute;left:.68rem;top:.95rem;width:6px;height:6px;border-radius:50%;background:#86EFAC}
-.tutorial-lista strong{color:#14532D}
-.demo-barra{display:flex;flex-wrap:wrap;gap:.45rem;padding:.75rem;background:#F8FAF9;border:1px solid #DCE5DE;border-radius:10px;margin:0 0 1rem}
-.demo-chip{display:inline-flex;align-items:center;min-height:32px;padding:.25rem .65rem;border:1px solid #DCE5DE;border-radius:999px;background:#FFF;color:#334155;font-size:.68rem;font-weight:800}
-.demo-chip-activo{background:#EAF4EC;border-color:#A7D5B3;color:#166534}
-.demo-chip-audio{background:#EFF6FF;border-color:#BFDBFE;color:#1E3A8A}
+.objetivo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem;margin:1.1rem 0 0}
+.objetivo-card{background:#FFF;border:1px solid #DCE5DE;border-radius:10px;padding:.8rem .85rem}
+.objetivo-card span{display:inline-block;margin-bottom:.4rem;padding:.2rem .5rem;border-radius:999px;background:#EAF4EC;color:#166534;font-size:.62rem;font-weight:900;letter-spacing:.08em}
+.objetivo-card p{margin:0;font-size:.84rem;line-height:1.5;color:#475569}
 .demo-capitulos{display:grid;gap:.45rem;margin:0 0 1rem}
 .demo-cap{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:.65rem;background:#FFF;border:1px solid #DCE5DE;border-radius:9px;padding:.55rem .7rem}
 .demo-cap-num{width:30px;height:30px;border-radius:50%;background:#EAF4EC;color:#166534;display:grid;place-items:center;font-size:.78rem;font-weight:900}
@@ -338,6 +334,7 @@ body.imprenta .ph{text-transform:none}
   .inicio-pasos li{padding:.8rem}
   .tutorial-acciones .btn{flex:1 1 100%}
   .demo-pregunta-articulo{grid-template-columns:1fr}
+  .objetivo-grid{grid-template-columns:1fr}
   #h-menu,#h-capitulo,#h-pregunta,#h-articulo,#h-libro,.panel-articulo{scroll-margin-top:1rem}
   .capitulos{grid-template-columns:1fr}
   .encabezado{padding:1rem .8rem .9rem}
@@ -429,23 +426,26 @@ body.imprenta .ph{text-transform:none}
         </ol>
       </article>
 
-      <article class="tutorial-paso" data-paso="1" aria-labelledby="h-tutorial-barra">
-        <h2 id="h-tutorial-barra" tabindex="-1">La barra de herramientas</h2>
-        <p class="tutorial-bajada">Arriba están los controles que te acompañan durante toda la actividad.</p>
+      <article class="tutorial-paso" data-paso="1" aria-labelledby="h-tutorial-objetivo">
+        <h2 id="h-tutorial-objetivo" tabindex="-1">El objetivo de la actividad</h2>
+        <p class="tutorial-bajada">Investigar cómo el aire, el agua, el sol, el clima y el suelo influyen en los cultivos, y convertir lo aprendido en una guía escrita por todo el curso.</p>
 
-        <div class="demo-barra" aria-hidden="true">
-          <span class="demo-chip demo-chip-activo">Imprenta mayúscula: sí</span>
-          <span class="demo-chip">Imprimir</span>
-          <span class="demo-chip">Menú principal</span>
-          <span class="demo-chip demo-chip-audio">Escuchar ayuda</span>
+        <div class="objetivo-grid">
+          <div class="objetivo-card">
+            <span>Comprender</span>
+            <p>Reconocer cómo los factores ambientales afectan el crecimiento de las plantas.</p>
+          </div>
+          <div class="objetivo-card">
+            <span>Escribir</span>
+            <p>Producir un artículo por capítulo con ideas claras y fundamentadas.</p>
+          </div>
+          <div class="objetivo-card">
+            <span>Compartir</span>
+            <p>Armar una guía de cultivos para el libro del curso.</p>
+          </div>
         </div>
 
-        <ul class="tutorial-lista">
-          <li><strong>Imprenta mayúscula:</strong> cambia el texto para leerlo con mayor claridad.</li>
-          <li><strong>Imprimir:</strong> aparece cuando terminás un artículo o el libro.</li>
-          <li><strong>Menú principal:</strong> te lleva de vuelta a los capítulos.</li>
-          <li><strong>Escuchar ayuda:</strong> lee las instrucciones en voz alta.</li>
-        </ul>
+        <p class="tutorial-pista">No se trata de adivinar: podés pensar, probar y volver a intentar.</p>
       </article>
 
       <article class="tutorial-paso" data-paso="2" aria-labelledby="h-tutorial-capitulos">
@@ -1051,7 +1051,7 @@ body.imprenta .ph{text-transform:none}
   const ui = { fragmentosPrevios: new Set(), animar: false, audioBtn: null };
   const AUDIO_TUTORIAL = [
     'La idea de esta actividad es que escribas tu propia guía de cultivos. Hay cinco capítulos. En cada uno vas a responder una pregunta por vez y tu artículo se va a ir armando con tus respuestas.',
-    'La barra de herramientas te acompaña durante toda la actividad. Podés cambiar a imprenta mayúscula, imprimir cuando tengas un artículo terminado, volver al menú principal o escuchar la ayuda en voz alta.',
+    'El objetivo de la actividad es investigar cómo el aire, el agua, el sol, el clima y el suelo influyen en los cultivos, y convertir lo aprendido en una guía escrita por todo el curso. Vas a comprender, escribir y compartir.',
     'Hay cinco capítulos y podés empezar por cualquiera. Cada capítulo tiene seis preguntas y arma un artículo diferente. La barra de avance muestra cuántos capítulos completaste.',
     'En cada pregunta elegís una opción. Si es correcta, se agrega una idea al artículo. Si te equivocás, podés pedir una pista o volver a intentar. El artículo se guarda automáticamente.',
     'Al terminar un capítulo, tu artículo queda listo. Podés escucharlo, editarlo, copiarlo, descargarlo o imprimirlo. También podés sumarlo al libro del curso. Para empezar, activá el botón Comenzar la actividad.'
