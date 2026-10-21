@@ -350,6 +350,235 @@ body.imprenta .ph{text-transform:none}
   .tarjeta-cap{min-height:0}
   .cap-accion-texto{display:none}
 }
+/* Refinamiento visual: papel cálido, verde editorial y acentos ocre */
+:root{
+  --fondo:#F6F2E9;--tarjeta:#FFFDF8;--linea:#E2D8C6;--texto:#23261F;
+  --verde:#1F5B34;--verde-oscuro:#12351D;--verde-claro:#EAF3E8;
+  --ambar:#A16207;--ambar-claro:#FBF0D9;--rojo:#9B2C2C;--ok:#1F6B3A;--ok-claro:#EDF7EE;
+  --gris:#D8CEBB;--gris-oscuro:#5B6155;--azul:#2F5D8A;--azul-claro:#EDF4FB;
+  --foco:#B45309;--sombra:0 1px 2px rgba(35,38,31,.05),0 12px 28px rgba(35,38,31,.07);
+}
+html{background:var(--fondo)}
+body{background:linear-gradient(180deg,#F8F5EE 0,#F5F0E4 26rem,var(--fondo) 100%);color:var(--texto);font-size:17px;line-height:1.7;letter-spacing:.01em}
+body.imprenta *{letter-spacing:.014em}
+body.imprenta input,body.imprenta textarea{letter-spacing:normal}
+:focus-visible{outline:3px solid var(--foco);outline-offset:2px;box-shadow:0 0 0 2px var(--tarjeta)}
+.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.encabezado{padding:1.15rem 1.2rem;background:linear-gradient(110deg,#0E2C18,#17452A 70%,#123B22);border-bottom:3px solid #C7A24A;text-align:left;box-shadow:none}
+.encabezado-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:1rem}
+.sello{width:54px;height:54px;flex:none;border:1px solid rgba(245,231,184,.55);border-radius:50%;display:grid;place-items:center;color:#F5E7B8;font-weight:900;font-size:1.18rem;letter-spacing:.04em;box-shadow:inset 0 0 0 4px rgba(245,231,184,.08);background:rgba(255,255,255,.04)}
+.encabezado-texto{min-width:0}
+.encabezado .etiqueta{color:#D8C48A;font-size:.68rem;letter-spacing:.12em;margin:0 0 .12rem}
+.encabezado .marca{font-size:clamp(1.18rem,2.7vw,1.7rem);line-height:1.18;letter-spacing:.012em}
+.encabezado .subtitulo{font-size:.8rem;line-height:1.45;color:#DCE6DD;margin:.22rem 0 0}
+.header-hoja{width:104px;height:64px;margin-left:auto;color:#A9C7A4;opacity:.6;flex:none}
+.barra{background:rgba(255,253,248,.96);padding:.5rem .8rem;gap:.4rem;border-bottom:1px solid var(--linea);box-shadow:0 4px 18px rgba(35,38,31,.05);backdrop-filter:blur(8px)}
+.barra .btn{min-height:40px;padding:.45rem .8rem;font-size:.78rem;font-weight:800;background:var(--tarjeta);color:#394136;border:1px solid var(--linea);border-radius:8px;box-shadow:none}
+.barra .btn:hover:not(:disabled){background:#F4EFE4;border-color:#C9BEA8;transform:none;box-shadow:none}
+.barra .btn-mayus,.barra .btn-mayus.activo{background:#EFF5ED;color:#1F5B34;border-color:#BFD3BE}
+.barra .btn-imprimir{background:#1F5B34;color:#FFF;border-color:#1F5B34}
+.barra .btn-imprimir:hover:not(:disabled){background:#12351D}
+.barra .btn-inicio{background:#F8F3E7;color:#5B4A2B;border-color:#DDCDA9}
+.barra .btn-audio{background:#FBF0D9;color:#7C4A10;border-color:#E4C98E}
+.btn{border-radius:10px;min-height:46px;padding:.68rem 1.05rem;font-size:.94rem;font-weight:800;letter-spacing:.01em;box-shadow:0 1px 2px rgba(35,38,31,.12)}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 7px 16px rgba(35,38,31,.14)}
+.btn:disabled{background:#EEE8DC;color:#8A8171;border:1px solid #D8CEBB;opacity:1;box-shadow:none;transform:none}
+.btn-primario{background:var(--verde);color:#FFF}
+.btn-primario:hover:not(:disabled){background:var(--verde-oscuro)}
+.btn-sec{background:var(--tarjeta);color:#394136;border:1.5px solid #D3C7B3}
+.btn-sec:hover:not(:disabled){background:#F4EFE4;border-color:#BDAF97}
+.btn-texto{background:transparent;color:var(--verde);text-decoration:underline;text-underline-offset:3px;padding:.55rem .65rem;box-shadow:none}
+.btn-texto:hover:not(:disabled){background:#EFF5ED;transform:none;box-shadow:none}
+.btn-reiniciar{color:var(--rojo)}
+.btn-reiniciar:hover:not(:disabled){background:#FCF0ED}
+.btn-peligro{background:var(--rojo)}
+.btn-audio-suave{background:#FBF0D9;color:#6F420C;border:1px solid #E3C98E;border-radius:999px;font-size:.82rem;font-weight:800;padding:.5rem .85rem}
+.btn-audio-suave .ico,.barra .btn-audio .ico{width:17px;height:17px}
+.btn-audio-suave:hover{background:#F6E5C4}
+.btn-audio-suave.activo{background:#FCE8E4;color:#7F1D1D;border-color:#E4B4AA}
+.btn-pista,.btn-revelar{min-height:42px;padding:.5rem .85rem;font-size:.84rem;font-weight:800;border-radius:8px;background:var(--tarjeta);border:1px solid #D3C7B3;color:#394136;box-shadow:none}
+.btn-pista:hover,.btn-revelar:hover{background:#F4EFE4}
+.btn-revelar{background:var(--ambar-claro);border-color:#D8B56B;color:#6F420C}
+.btn-comenzar{min-height:52px;padding:.8rem 1.35rem;font-size:1rem}
+input[type=text],textarea{background:var(--tarjeta);border:1.5px solid #CFC5B1;border-radius:9px}
+input[type=text]:focus,textarea:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(31,91,52,.14)}
+input::placeholder,textarea::placeholder{color:#8A8171;text-transform:uppercase;letter-spacing:.04em}
+progress{height:8px;accent-color:var(--verde)}
+.tutorial{max-width:1040px;padding:1.15rem 0 2.4rem}
+.tutorial-cabecera{align-items:flex-end;padding-bottom:.8rem;margin-bottom:1.15rem;border-bottom:1px solid var(--linea)}
+.tutorial .etiqueta{color:#7C6A4A;font-size:.7rem;letter-spacing:.12em}
+.tutorial-progreso{background:var(--verde-oscuro);color:#F5E7B8;border:1px solid var(--verde-oscuro);font-size:.68rem;letter-spacing:.08em;padding:.4rem .8rem}
+.tutorial h1,.tutorial h2{font-size:clamp(1.7rem,4vw,2.35rem);line-height:1.15;letter-spacing:.005em;color:var(--verde-oscuro);max-width:26ch;text-wrap:balance}
+.tutorial-bajada{font-size:1rem;line-height:1.75;letter-spacing:.012em;max-width:60ch;color:#4A4F45}
+.inicio-hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);gap:1.5rem;align-items:center}
+.inicio-copy{min-width:0}
+.inicio-ilustracion{margin:0;background:linear-gradient(145deg,#EFF5E9,#FBF5E5);border:1px solid #D8DCC9;border-radius:18px;padding:1rem;box-shadow:var(--sombra)}
+.inicio-ilustracion svg{display:block;width:100%;height:auto}
+.inicio-pasos{margin:1.25rem 0 0;gap:.55rem}
+.inicio-pasos li{background:rgba(255,253,248,.86);border:1px solid var(--linea);border-radius:12px;padding:.82rem .95rem;box-shadow:0 1px 1px rgba(35,38,31,.03)}
+.inicio-num{width:32px;height:32px;border-radius:9px;background:var(--verde-oscuro);color:#F5E7B8;font-size:.85rem}
+.inicio-pasos h2{font-size:.98rem;line-height:1.35;color:var(--texto);letter-spacing:.008em}
+.inicio-pasos p{font-size:.9rem;line-height:1.6;color:#5B6155;letter-spacing:.01em}
+.objetivo-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1.2rem 0 0}
+.objetivo-card{position:relative;background:var(--tarjeta);border:1px solid var(--linea);border-top:3px solid #C7A24A;border-radius:12px;padding:1rem;box-shadow:0 1px 2px rgba(35,38,31,.04)}
+.objetivo-card .obj-icono{width:34px;height:34px;padding:0;margin:0 0 .6rem;display:grid;place-items:center;border-radius:50%;background:#EFF5ED;color:var(--verde);font-size:0;letter-spacing:0;border:0}
+.obj-icono .ico{width:18px;height:18px}
+.objetivo-card .obj-label{margin:0 0 .3rem;font-size:.75rem;font-weight:900;letter-spacing:.09em;color:#7C6A4A}
+.objetivo-card p{margin:0;font-size:.89rem;line-height:1.6;color:#4A4F45;letter-spacing:.012em}
+.demo-capitulos{gap:.5rem}
+.demo-cap{background:var(--tarjeta);border:1px solid var(--linea);border-left:3px solid var(--verde);border-radius:10px;padding:.65rem .75rem}
+.demo-cap-num{background:var(--verde-claro);color:var(--verde);border-radius:8px;font-size:.78rem}
+.demo-cap strong{font-size:.84rem;color:var(--texto)}
+.demo-cap small{font-size:.72rem;color:#7C6A4A}
+.demo-cap b{color:var(--verde)}
+.demo-pregunta{background:var(--tarjeta);border:1px solid var(--linea);border-radius:10px}
+.demo-pregunta small{font-size:.7rem;color:#7C6A4A}
+.demo-pregunta-texto{font-size:.8rem;line-height:1.55;letter-spacing:.01em}
+.demo-opcion{border:1px solid #DED5C4;border-radius:7px;background:#FFFDF8;font-size:.7rem}
+.demo-opcion.correcta{background:#EDF7EE;border-color:#9FC8A5;color:#1D4D2B}
+.demo-hoja{background-color:#FFFDF7;background-image:linear-gradient(to right,transparent 0 1.5rem,#EAB5AE 1.5rem 1.54rem,transparent 1.54rem),repeating-linear-gradient(to bottom,transparent 0 23px,#E6E0D2 23px 24px);background-size:100% 100%,100% 24px;background-position:0 0,0 6px;border:1px solid #DED3BE}
+.demo-acciones span{background:var(--tarjeta);border-color:var(--linea);color:#5B4A2B}
+.tutorial-pista{font-size:.83rem;line-height:1.6;color:#7B7160}
+.tutorial-cierre{background:#F1F7EF;border-color:#C9DCC6;color:#1D4D2B;font-size:.88rem;line-height:1.6}
+.tutorial-nota{font-size:.82rem;color:#7B7160}
+.portada{max-width:900px;margin:0 auto 1rem;background:linear-gradient(120deg,#FFFDF8,#F8F3E7);border:1px solid var(--linea);border-left:3px solid var(--verde);border-radius:14px;padding:1.4rem 1.45rem;box-shadow:var(--sombra)}
+.portada h1{font-size:clamp(1.55rem,3.5vw,2.15rem);line-height:1.16;letter-spacing:.005em}
+.portada .bajada{font-size:1rem;line-height:1.7;color:#4A4F45}
+.menu-grid{max-width:900px;margin:1.05rem auto;gap:.8rem}
+.campo-nombre,.progreso{background:var(--tarjeta);border:1px solid var(--linea);border-radius:12px;box-shadow:0 1px 2px rgba(35,38,31,.04)}
+.campo-nombre{padding:.9rem 1rem}
+.progreso{padding:.7rem 0 .7rem 1rem;border:0;border-left:1px solid var(--linea);border-radius:0;background:transparent}
+.progreso-titulo{font-size:.8rem;color:#7C6A4A;letter-spacing:.08em}
+.progreso-texto{font-size:.88rem;color:var(--verde-oscuro)}
+.progreso progress{height:6px}
+.guardado{font-size:.76rem;color:#7B7160}
+.capitulos{max-width:900px;gap:.65rem}
+.tarjeta-cap{grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:.2rem .8rem;text-align:left;background:var(--tarjeta);border:1px solid var(--linea);border-left:3px solid var(--verde);border-radius:12px;padding:.88rem 1rem;min-height:76px;box-shadow:0 1px 2px rgba(35,38,31,.04);transition:transform .16s,box-shadow .16s,border-color .16s}
+.tarjeta-cap:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(35,38,31,.09);border-color:#C9BEA8}
+.cap-icono{width:44px;height:44px;border-radius:11px;background:var(--verde-claro);color:var(--verde);display:grid;place-items:center;font-size:0}
+.cap-icono .ico{width:23px;height:23px}
+.tarjeta-cap.aire,.tarjeta-cap.agua,.tarjeta-cap.sol,.tarjeta-cap.clima,.tarjeta-cap.suelo{border-left-color:var(--verde)}
+.tarjeta-cap.aire .cap-icono,.tarjeta-cap.agua .cap-icono,.tarjeta-cap.sol .cap-icono,.tarjeta-cap.clima .cap-icono,.tarjeta-cap.suelo .cap-icono{background:#EAF3E8;color:#2D6A43}
+.tarjeta-cap.aire .cap-icono{background:#E7F2F0;color:#236B63}
+.tarjeta-cap.agua .cap-icono{background:#EAF1F7;color:#2F5D8A}
+.tarjeta-cap.sol .cap-icono{background:#FBF0D9;color:#8A5A12}
+.tarjeta-cap.clima .cap-icono{background:#EEF1E4;color:#536B3D}
+.tarjeta-cap.suelo .cap-icono{background:#F3EDE2;color:#6F5539}
+.cap-num{font-size:.7rem;font-weight:900;letter-spacing:.09em;color:#7C6A4A}
+.cap-tit{font-size:1.02rem;line-height:1.32;color:var(--texto);letter-spacing:.006em}
+.cap-sub{font-size:.82rem;line-height:1.45;color:#5B6155}
+.cap-accion{background:#EFF5ED;border:1px solid #C8D8C5;border-radius:999px;padding:.32rem .65rem;font-size:.72rem;font-weight:900;letter-spacing:.05em;color:#1F5B34;white-space:nowrap}
+.cap-accion b{font-size:1rem;line-height:1}
+.tarjeta-cap.completo{background:#F3F9F1;border-color:#BED6BA}
+.cap-cabecera{background:var(--tarjeta);border:1px solid var(--linea);border-left:3px solid var(--verde);border-radius:12px;padding:1rem 1.1rem;box-shadow:0 1px 2px rgba(35,38,31,.04);align-items:center}
+#btnVolverMenu{align-self:center;min-height:36px;padding:.38rem .7rem;border:1px solid var(--linea);border-radius:999px;background:var(--tarjeta);color:#5B4A2B;font-size:.78rem;text-decoration:none;white-space:nowrap}
+#btnVolverMenu:hover:not(:disabled){background:#F4EFE4;border-color:#C9BEA8}
+.cap-titulos{display:flex;align-items:flex-start;gap:.8rem}
+.cap-titulos-texto{min-width:0}
+.cap-cab-icono{width:44px;height:44px;flex:none;border-radius:11px;display:grid;place-items:center;background:var(--verde-claro);color:var(--verde)}
+.cap-cab-icono .ico{width:23px;height:23px}
+.cap-titulos h1{font-size:clamp(1.28rem,3.2vw,1.75rem);line-height:1.2;letter-spacing:.005em}
+.cap-cab-sub{font-size:.88rem;color:#5B6155}
+.cap-progreso p{font-size:.82rem;color:#5B6155}
+.panel-preguntas,.panel-articulo{background:var(--tarjeta);border:1px solid var(--linea);border-radius:14px;box-shadow:0 1px 2px rgba(35,38,31,.04)}
+.panel-preguntas{padding:1.15rem 1.2rem}
+.panel-articulo{border-top:3px solid var(--verde);padding:1rem 1.05rem;top:4.7rem}
+.pregunta-titulo{font-size:1.16rem;line-height:1.55;letter-spacing:.008em;color:var(--texto)}
+.opcion{border:1.5px solid #D9D0BF;border-radius:10px;padding:.8rem .9rem;margin:.5rem 0;background:var(--tarjeta);font-weight:600;line-height:1.55;transition:background .15s,border-color .15s,box-shadow .15s}
+.opcion:hover{background:#F7F3E9;border-color:#B9AD96}
+.opcion.sel{background:#F1F7F0;border-color:#3C7A4A;box-shadow:inset 0 0 0 1px #3C7A4A}
+.opcion.correcta{background:#EDF7EE;border-color:#3E8A53;box-shadow:inset 0 0 0 1px #3E8A53}
+.opcion.incorrecta{background:#FCF0ED;border-color:#B4544A;box-shadow:inset 0 0 0 1px #B4544A}
+.opcion:focus-within{outline:3px solid var(--foco);outline-offset:2px;box-shadow:0 0 0 2px var(--tarjeta)}
+.letra{color:#7C6A4A;font-size:.86rem;font-weight:900;letter-spacing:.02em}
+.opcion.sel .letra{color:#1F5B34}
+.opcion.correcta .letra{color:#1D4D2B}
+.opcion.incorrecta .letra{color:#7A2A23}
+.marca-ok,.marca-mal{font-size:1rem}
+.glosario{margin:.8rem 0 0;background:#FBF7EC;border:1px solid #E5D8BD;border-left:3px solid #C7A24A;border-radius:9px;padding:.1rem .85rem}
+.glosario summary{cursor:pointer;list-style:none;min-height:42px;display:flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:900;letter-spacing:.04em;color:#6F4E12}
+.glosario summary::-webkit-details-marker{display:none}
+.glosario summary .ico{width:17px;height:17px}
+.glosario summary::after{content:'+';margin-left:auto;font-size:1.25rem;line-height:1;color:#8A5A12}
+.glosario[open] summary::after{content:'–'}
+.glosario dl{display:grid;gap:.55rem;margin:0 0 .8rem;padding:.65rem 0 0;border-top:1px dashed #DCCBA8}
+.glosario-item dt{font-size:.81rem;font-weight:900;color:#4A3A1E;letter-spacing:.03em}
+.glosario-item dd{margin:.12rem 0 0;font-size:.83rem;line-height:1.55;color:#5B4A2B;letter-spacing:.01em}
+.pista{background:#FFFBF0;border:1px solid #E5D0A2;border-left:3px solid #C7A24A;border-radius:8px;color:#5C430D;font-weight:500;line-height:1.6}
+.feedback{border-radius:9px;padding:.75rem .9rem;font-weight:600;line-height:1.55}
+.feedback.ok{background:var(--ok-claro);border-color:#B7D8BC;color:#1E4D2B}
+.feedback.mal{background:#FCF0ED;border-color:#E5B7AF;color:#7A2A23}
+.feedback.aviso{background:#FBF7EC;border-color:#E5D0A2;color:#6F4E12}
+.reco-card{background:#F5F9F2;border:1px solid #CFE0C8;border-left:3px solid var(--verde);border-radius:10px}
+.reco-label{font-size:.75rem;letter-spacing:.08em;color:#7C6A4A}
+.reco-card p{color:#3E4A39}
+.campo-propio label{font-size:.88rem;color:#394136}
+.contador{font-size:.78rem;color:#7B7160}
+.articulo-cabecera{align-items:flex-start;margin-bottom:.55rem}
+.articulo-cabecera .btn-audio-suave{white-space:nowrap;flex:none;font-size:.74rem;padding:.45rem .7rem}
+.articulo-titulo{font-size:1.13rem;line-height:1.35;letter-spacing:.003em}
+.etiqueta{font-size:.72rem;letter-spacing:.1em;color:#7C6A4A}
+.byline{font-size:.76rem;color:#7B7160}
+.progreso-articulo{font-size:.74rem;color:#7B7160;letter-spacing:.02em}
+.progreso-articulo progress{height:6px;accent-color:#A16207}
+.articulo-parrafos{background-color:#FFFDF7;background-image:linear-gradient(to right,transparent 0 2.3rem,#EAB5AE 2.3rem 2.34rem,transparent 2.34rem),repeating-linear-gradient(to bottom,transparent 0 27px,#E8E1D2 27px 28px);background-size:100% 100%,100% 28px;background-position:0 0,0 8px;border:1px solid #DED3BE;padding:.7rem 1rem .9rem 2.85rem}
+.parrafo-articulo p{font-size:.94rem;line-height:28px;letter-spacing:.012em;color:#2E3029}
+.marca-parrafo{font-size:.65rem;line-height:28px;margin:0;font-weight:900;letter-spacing:.1em;color:#9A8867}
+.parrafo-articulo .consejo{background:#F1F7F0;border-left:3px solid var(--verde);border-radius:0 6px 6px 0;padding:.35rem .6rem}
+.articulo-vacio{color:#9A8867;line-height:28px}
+.acciones-articulo{position:sticky;bottom:0;background:var(--tarjeta);border-top:1px solid #CFE0CF;margin-top:1rem;padding:.8rem 0 .2rem;box-shadow:0 -8px 18px rgba(255,253,248,.92)}
+.completo-titulo{font-size:.86rem;color:#1D4D2B;letter-spacing:.04em}
+.acciones-fila .btn{font-size:.82rem;min-height:40px;padding:.5rem .75rem}
+.banner-completo{background:#EDF7EE;border:1px solid #B7D8BC;color:#1D4D2B;font-size:.9rem}
+.libro-portada,.libro-capitulo{background:var(--tarjeta);border:1px solid var(--linea);box-shadow:var(--sombra)}
+.libro-portada h2,.libro-capitulo h2{color:var(--verde-oscuro);letter-spacing:.005em}
+.libro-sub{color:#5B6155}
+.libro-nota{background:#FBF7EC;border-color:#E5D0A2;color:#6F4E12}
+.ayuda-caja{background:var(--tarjeta);border-color:var(--linea);border-radius:10px}
+.ayuda-caja summary{font-size:.9rem;color:#394136}
+.ayuda-caja ol{color:#4A4F45;line-height:1.7}
+@media(min-width:1100px){
+  .capitulo-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.1rem}
+}
+@media(max-width:900px){
+  .inicio-hero{grid-template-columns:1fr;gap:1rem}
+  .inicio-ilustracion{max-width:420px;margin:0 auto;order:-1}
+}
+@media(max-width:640px){
+  body{font-size:16px}
+  .encabezado{padding:.9rem .8rem}
+  .encabezado-inner{gap:.7rem}
+  .sello{width:44px;height:44px;font-size:1rem}
+  .header-hoja{display:none}
+  .encabezado .etiqueta{font-size:.62rem}
+  .encabezado .marca{font-size:1.12rem}
+  .encabezado .subtitulo{font-size:.72rem}
+  .barra{background:var(--tarjeta);padding:.55rem .6rem;gap:.4rem}
+  .barra .btn{min-height:42px;font-size:clamp(.72rem,3.5vw,.8rem);padding:.4rem .25rem;line-height:1.2;white-space:normal}
+  .contenedor{padding:1rem .8rem 2.4rem}
+  .tutorial h1,.tutorial h2{font-size:clamp(1.6rem,7vw,1.95rem)}
+  .tutorial-bajada{font-size:.95rem;line-height:1.7}
+  .inicio-ilustracion{padding:.65rem;border-radius:14px}
+  .inicio-pasos li{padding:.78rem .82rem}
+  .objetivo-grid{grid-template-columns:1fr}
+  .portada{padding:1.1rem 1rem}
+  .portada h1{font-size:1.55rem}
+  .menu-grid{gap:.6rem}
+  .progreso{padding:.7rem .1rem .7rem 0;border-left:0;border-top:1px solid var(--linea);border-radius:0}
+  .capitulos{gap:.55rem}
+  .tarjeta-cap{padding:.8rem .85rem;border-radius:10px}
+  .cap-icono{width:40px;height:40px}
+  .cap-cabecera{padding:.85rem .85rem;align-items:flex-start}
+  .cap-cab-icono{width:40px;height:40px}
+  .cap-titulos{gap:.65rem}
+  .panel-preguntas,.panel-articulo{padding:.9rem .85rem}
+  .pregunta-titulo{font-size:1.08rem;line-height:1.55}
+  .articulo-parrafos{background-image:linear-gradient(to right,transparent 0 1.9rem,#EAB5AE 1.9rem 1.94rem,transparent 1.94rem),repeating-linear-gradient(to bottom,transparent 0 27px,#E8E1D2 27px 28px);background-position:0 0,0 8px;padding:.65rem .8rem .8rem 2.4rem}
+  .articulo-parrafos::before{left:.4rem}
+  .acciones-fila .btn{font-size:.78rem}
+  .glosario{padding:.1rem .7rem}
+  .feedback{font-size:.9rem}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
@@ -373,19 +602,76 @@ body.imprenta .ph{text-transform:none}
 </style>
 </head>
 <body class="imprenta">
+<svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;overflow:hidden">
+  <symbol id="i-aire" viewBox="0 0 24 24">
+    <path d="M3 8h11a3 3 0 1 0-3-3"></path>
+    <path d="M3 12h15a3 3 0 1 1-3 3"></path>
+    <path d="M3 16h7"></path>
+  </symbol>
+  <symbol id="i-agua" viewBox="0 0 24 24">
+    <path d="M12 2.7c-.3 0-.6.2-.8.4C9.9 5.3 5.5 10.7 5.5 14.5a6.5 6.5 0 0 0 13 0c0-3.8-4.4-9.2-5.7-11.4a1 1 0 0 0-.8-.4Z"></path>
+    <path d="M9 15.2a3 3 0 0 0 3 2.8"></path>
+  </symbol>
+  <symbol id="i-sol" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+  </symbol>
+  <symbol id="i-clima" viewBox="0 0 24 24">
+    <path d="M7 18h10a3 3 0 0 0 .2-6A5 5 0 0 0 7.7 13 3 3 0 0 0 7 18Z"></path>
+    <path d="M3 7h6a2 2 0 1 0-2-2"></path>
+    <path d="M3 11h4"></path>
+  </symbol>
+  <symbol id="i-suelo" viewBox="0 0 24 24">
+    <path d="M3 19h18M5 15.5h14M12 15.5V9"></path>
+    <path d="M12 11.5c-3.2 0-4.7-2.2-4.7-4.7 3.2 0 4.7 2.2 4.7 4.7Z"></path>
+    <path d="M12 10.5c3.1 0 4.6-2 4.6-4.4-3.1 0-4.6 2-4.6 4.4Z"></path>
+  </symbol>
+  <symbol id="i-ojo" viewBox="0 0 24 24">
+    <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+    <circle cx="12" cy="12" r="2.8"></circle>
+  </symbol>
+  <symbol id="i-lapiz" viewBox="0 0 24 24">
+    <path d="m4 20 4.2-1 10.6-10.6a2.1 2.1 0 0 0-3-3L5.2 16 4 20Z"></path>
+    <path d="m14.5 6.5 3 3"></path>
+  </symbol>
+  <symbol id="i-compartir" viewBox="0 0 24 24">
+    <circle cx="18" cy="5" r="2.5"></circle>
+    <circle cx="6" cy="12" r="2.5"></circle>
+    <circle cx="18" cy="19" r="2.5"></circle>
+    <path d="m8.3 10.8 7.4-4.3M8.3 13.2l7.4 4.3"></path>
+  </symbol>
+  <symbol id="i-libro" viewBox="0 0 24 24">
+    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"></path>
+    <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"></path>
+  </symbol>
+  <symbol id="i-altavoz" viewBox="0 0 24 24">
+    <path d="M4 10v4h3l4 3V7l-4 3H4Z"></path>
+    <path d="M15 9.5a4 4 0 0 1 0 5M18 7a8 8 0 0 1 0 10"></path>
+  </symbol>
+</svg>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <header class="encabezado">
-  <p class="etiqueta">ESRN Rural Virtual · Clase N.º 16</p>
-  <p class="marca">Guía de Cultivos del Curso</p>
-  <p class="subtitulo">Taller de Educación Científica y Tecnológica</p>
+  <div class="encabezado-inner">
+    <div class="sello" aria-hidden="true">16</div>
+    <div class="encabezado-texto">
+      <p class="etiqueta">ESRN Rural Virtual · Clase N.º 16</p>
+      <p class="marca">Guía de Cultivos del Curso</p>
+      <p class="subtitulo">Taller de Educación Científica y Tecnológica</p>
+    </div>
+    <svg class="header-hoja" viewBox="0 0 100 64" aria-hidden="true">
+      <path d="M78 7C45 14 21 34 14 60c27-4 51-23 64-53Z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      <path d="M12 62c18-8 34-20 48-37" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+      <path d="M42 42c-7 0-11-4-13-11 7 0 12 4 13 11ZM55 30c7 0 11-4 13-11-7 0-12 4-13 11Z" fill="none" stroke="currentColor" stroke-width="1.2"></path>
+    </svg>
+  </div>
 </header>
 
 <nav class="barra" aria-label="Herramientas de accesibilidad">
   <button class="btn btn-mayus" id="btnMayus" type="button" aria-pressed="true">Imprenta mayúscula: sí</button>
   <button class="btn btn-imprimir" id="btnImprimir" type="button">Imprimir</button>
   <button class="btn btn-inicio" id="btnInicio" type="button">Menú principal</button>
-  <button class="btn btn-audio" id="btnAyudaAudio" type="button" aria-label="Escuchar la ayuda general">Escuchar ayuda</button>
+  <button class="btn btn-audio" id="btnAyudaAudio" type="button" aria-label="Escuchar la ayuda general"><svg class="ico" aria-hidden="true"><use href="#i-altavoz"></use></svg> Escuchar ayuda</button>
 </nav>
 
 <main id="contenido" class="contenedor">
@@ -393,55 +679,88 @@ body.imprenta .ph{text-transform:none}
   <section id="pantalla-inicio" class="pantalla activa" aria-label="Tutorial de la Guía de Cultivos">
     <div class="tutorial" id="tutorial" data-paso="0">
       <div class="tutorial-cabecera">
-        <p class="etiqueta">Guía de Cultivos del Curso</p>
+        <p class="etiqueta">Antes de empezar</p>
         <p class="tutorial-progreso" id="tutorialProgreso" aria-live="polite">Paso 1 de 5</p>
       </div>
 
       <article class="tutorial-paso activo" data-paso="0" aria-labelledby="h-inicio">
-        <h1 id="h-inicio" tabindex="-1">Escribí tu propia guía de cultivos</h1>
-        <p class="tutorial-bajada">Cinco capítulos. Una pregunta por vez. Un artículo que se va armando con tus respuestas.</p>
+        <div class="inicio-hero">
+          <div class="inicio-copy">
+            <h1 id="h-inicio" tabindex="-1">Escribí tu propia guía de cultivos</h1>
+            <p class="tutorial-bajada">Cinco capítulos. Una pregunta por vez. Un artículo que se va armando con tus respuestas.</p>
 
-        <ol class="inicio-pasos">
-          <li>
-            <span class="inicio-num" aria-hidden="true">1</span>
-            <div>
-              <h2>Elegí un capítulo</h2>
-              <p>Hay cinco temas para investigar: aire, agua, sol, clima y suelo.</p>
-            </div>
-          </li>
-          <li>
-            <span class="inicio-num" aria-hidden="true">2</span>
-            <div>
-              <h2>Respondé y mirá cómo crece</h2>
-              <p>Cada respuesta correcta agrega una idea a tu artículo.</p>
-            </div>
-          </li>
-          <li>
-            <span class="inicio-num" aria-hidden="true">3</span>
-            <div>
-              <h2>Terminá y compartí</h2>
-              <p>Podés escuchar, editar, imprimir o sumar tu artículo al libro del curso.</p>
-            </div>
-          </li>
-        </ol>
+            <ol class="inicio-pasos">
+              <li>
+                <span class="inicio-num" aria-hidden="true">1</span>
+                <div>
+                  <h2>Elegí un capítulo</h2>
+                  <p>Hay cinco temas para investigar: aire, agua, sol, clima y suelo.</p>
+                </div>
+              </li>
+              <li>
+                <span class="inicio-num" aria-hidden="true">2</span>
+                <div>
+                  <h2>Respondé y mirá cómo crece</h2>
+                  <p>Cada respuesta correcta agrega una idea a tu artículo.</p>
+                </div>
+              </li>
+              <li>
+                <span class="inicio-num" aria-hidden="true">3</span>
+                <div>
+                  <h2>Terminá y compartí</h2>
+                  <p>Podés escuchar, editar, imprimir o sumar tu artículo al libro del curso.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <figure class="inicio-ilustracion" aria-hidden="true">
+            <svg viewBox="0 0 340 300" role="presentation">
+              <circle cx="170" cy="165" r="118" fill="#E4EFDF" opacity=".9"></circle>
+              <circle cx="270" cy="62" r="44" fill="#F6E3B4"></circle>
+              <circle cx="270" cy="62" r="28" fill="#E9C46A" opacity=".55"></circle>
+              <path d="M270 4v13M270 107v13M212 62h13M315 62h13M229 21l9 9M302 94l9 9M311 21l-9 9M238 94l-9 9" stroke="#C7A24A" stroke-width="3" stroke-linecap="round" opacity=".55"></path>
+              <g transform="rotate(-3 168 190)">
+                <rect x="57" y="111" width="216" height="150" rx="11" fill="#D9CFBA" opacity=".55"></rect>
+                <rect x="49" y="103" width="216" height="150" rx="11" fill="#FFFDF8" stroke="#D8CCB6" stroke-width="2"></rect>
+                <path d="M82 103v150" stroke="#E6B1A6" stroke-width="2"></path>
+                <path d="M99 137h136M99 161h146M99 185h118M99 209h142M99 233h104" stroke="#DFE6D8" stroke-width="3" stroke-linecap="round"></path>
+                <rect x="132" y="95" width="50" height="15" rx="4" fill="#E8DCC3" opacity=".95"></rect>
+                <circle cx="230" cy="190" r="16" fill="#EDF7EE" stroke="#8DBD92" stroke-width="2"></circle>
+                <path d="m222 190 6 6 11-13" fill="none" stroke="#2D6A43" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+              <path d="M196 158c0-38 5-68 19-93" fill="none" stroke="#2D6A43" stroke-width="4" stroke-linecap="round"></path>
+              <path d="M204 111c-26 2-41-11-47-33 26-2 42 12 47 33Z" fill="#6E9D68"></path>
+              <path d="M211 91c18-15 35-14 48-2-15 17-33 19-48 2Z" fill="#8BB882"></path>
+              <path d="M216 130c26 0 41 13 45 34-26 2-42-11-45-34Z" fill="#5D945F"></path>
+              <path d="M188 156c-18 0-28-9-32-23 18-2 29 8 32 23Z" fill="#97C08D"></path>
+              <path d="M76 60c7 9 9 16 2 23-8-3-10-11-2-23ZM96 84c6 8 7 14 1 20-7-3-8-10-1-20Z" fill="#8FB7C7" opacity=".75"></path>
+              <circle cx="63" cy="220" r="7" fill="#E9C46A" opacity=".7"></circle>
+              <circle cx="280" cy="220" r="5" fill="#6E9D68" opacity=".55"></circle>
+            </svg>
+          </figure>
+        </div>
       </article>
 
       <article class="tutorial-paso" data-paso="1" aria-labelledby="h-tutorial-objetivo">
         <h2 id="h-tutorial-objetivo" tabindex="-1">El objetivo de la actividad</h2>
-        <p class="tutorial-bajada">Investigar cómo el aire, el agua, el sol, el clima y el suelo influyen en los cultivos, y convertir lo aprendido en una guía escrita por todo el curso.</p>
+        <p class="tutorial-bajada">Vas a reconocer cómo el aire, el agua, el sol, el clima y el suelo afectan los cultivos. Con esas ideas vas a armar un artículo por capítulo y tu versión de la guía de cultivos.</p>
 
         <div class="objetivo-grid">
           <div class="objetivo-card">
-            <span>Comprender</span>
-            <p>Reconocer cómo los factores ambientales afectan el crecimiento de las plantas.</p>
+            <span class="obj-icono" aria-hidden="true"><svg class="ico"><use href="#i-ojo"></use></svg></span>
+            <p class="obj-label">Aprender</p>
+            <p>Explicar qué necesita una planta para crecer y qué la puede afectar.</p>
           </div>
           <div class="objetivo-card">
-            <span>Escribir</span>
-            <p>Producir un artículo por capítulo con ideas claras y fundamentadas.</p>
+            <span class="obj-icono" aria-hidden="true"><svg class="ico"><use href="#i-lapiz"></use></svg></span>
+            <p class="obj-label">Producir</p>
+            <p>Elegir, ordenar y cerrar las ideas de cada capítulo.</p>
           </div>
           <div class="objetivo-card">
-            <span>Compartir</span>
-            <p>Armar una guía de cultivos para el libro del curso.</p>
+            <span class="obj-icono" aria-hidden="true"><svg class="ico"><use href="#i-compartir"></use></svg></span>
+            <p class="obj-label">Tu artículo</p>
+            <p>Un título, tres párrafos de ideas y un consejo para la huerta.</p>
           </div>
         </div>
       </article>
@@ -490,7 +809,7 @@ body.imprenta .ph{text-transform:none}
           </div>
         </div>
 
-        <p class="tutorial-pista">Si te equivocás, podés pedir una pista o volver a intentar. El artículo se guarda automáticamente.</p>
+        <p class="tutorial-pista">Si te equivocás, podés pedir ayuda o volver a intentar. El artículo se guarda automáticamente.</p>
       </article>
 
       <article class="tutorial-paso" data-paso="4" aria-labelledby="h-tutorial-final">
@@ -513,7 +832,7 @@ body.imprenta .ph{text-transform:none}
         <button class="btn btn-sec" id="btnTutorialAnterior" type="button" hidden>← Anterior</button>
         <button class="btn btn-primario" id="btnTutorialSiguiente" type="button">Continuar →</button>
         <button class="btn btn-primario btn-comenzar" id="btnComenzar" type="button" hidden>Comenzar la actividad →</button>
-        <button class="btn btn-audio-suave" id="btnEscucharInicio" type="button">Escuchar paso</button>
+        <button class="btn btn-audio-suave" id="btnEscucharInicio" type="button"><svg class="ico" aria-hidden="true"><use href="#i-altavoz"></use></svg> Escuchar paso</button>
       </div>
       <p class="tutorial-nota">Tu avance se guarda automáticamente en este dispositivo.</p>
     </div>
@@ -523,7 +842,7 @@ body.imprenta .ph{text-transform:none}
     <div class="portada">
       <h1 id="h-menu" tabindex="-1">Elegí un capítulo</h1>
       <p class="bajada">Respondé una pregunta por vez. Tu artículo se escribe con tus respuestas.</p>
-      <button class="btn btn-audio-suave" id="btnEscucharMenu" type="button">Escuchar</button>
+      <button class="btn btn-audio-suave" id="btnEscucharMenu" type="button"><svg class="ico" aria-hidden="true"><use href="#i-altavoz"></use></svg> Escuchar</button>
     </div>
 
     <div class="menu-grid">
@@ -536,7 +855,7 @@ body.imprenta .ph{text-transform:none}
         <p class="progreso-titulo">Tu avance</p>
         <progress id="progMenu" max="5" value="0">0 de 5</progress>
         <p class="progreso-texto" id="progMenuTexto">0 de 5 capítulos</p>
-        <p class="guardado" id="estadoGuardado">Guardado automático activo</p>
+        <p class="guardado" id="estadoGuardado">Guardado automático</p>
       </div>
     </div>
 
@@ -561,7 +880,7 @@ body.imprenta .ph{text-transform:none}
       <ol>
         <li>Elegí uno de los cinco capítulos.</li>
         <li>Respondé una pregunta por vez. El artículo se va escribiendo mientras avanzás.</li>
-        <li>Las respuestas correctas agregan oraciones. Si te equivocás, podés volver a intentar o pedir una pista.</li>
+        <li>Las respuestas correctas agregan oraciones. Si te equivocás, podés volver a intentar o pedir ayuda.</li>
         <li>Al terminar, podés escuchar, editar, copiar, descargar e imprimir tu artículo.</li>
         <li>Cuando completes varios capítulos, podés armar el libro del curso.</li>
       </ol>
@@ -572,8 +891,11 @@ body.imprenta .ph{text-transform:none}
     <div class="cap-cabecera">
       <button class="btn btn-texto" id="btnVolverMenu" type="button">← Menú</button>
       <div class="cap-titulos">
-        <p class="etiqueta" id="capEtiqueta">Capítulo 1</p>
-        <h1 id="h-capitulo" tabindex="-1">El Aire y la Vida Subterránea</h1>
+        <span class="cap-cab-icono" id="capIcono" aria-hidden="true"></span>
+        <div class="cap-titulos-texto">
+          <p class="etiqueta" id="capEtiqueta">Capítulo 1</p>
+          <h1 id="h-capitulo" tabindex="-1">El Aire y la Vida Subterránea</h1>
+        </div>
       </div>
       <div class="cap-progreso">
         <progress id="progCapitulo" max="6" value="1">Pregunta 1 de 6</progress>
@@ -584,13 +906,17 @@ body.imprenta .ph{text-transform:none}
     <div class="capitulo-grid">
       <section class="panel-preguntas" aria-labelledby="h-pregunta">
         <div class="pregunta-cabecera">
-          <button class="btn btn-audio-suave" id="btnEscucharPregunta" type="button" aria-pressed="false">Escuchar pregunta</button>
+          <button class="btn btn-audio-suave" id="btnEscucharPregunta" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-altavoz"></use></svg> Escuchar pregunta y opciones</button>
         </div>
         <h2 id="h-pregunta" class="pregunta-titulo" tabindex="-1">Cargando pregunta…</h2>
         <p id="ayudaPregunta" class="ayuda"></p>
-        <div id="bannerCompleto" class="banner-completo" hidden>✓ Tu artículo está listo. Podés abrirlo y revisarlo.</div>
+        <details id="glosarioCapitulo" class="glosario" hidden>
+          <summary><svg class="ico" aria-hidden="true"><use href="#i-libro"></use></svg> Palabras clave del capítulo</summary>
+          <dl id="glosarioLista"></dl>
+        </details>
+        <div id="bannerCompleto" class="banner-completo" hidden>✓ Tu artículo está listo. Podés revisarlo y compartirlo.</div>
         <form id="formPregunta" novalidate></form>
-        <div id="feedbackPregunta" class="feedback" role="status" aria-live="polite" tabindex="-1"></div>
+        <div id="feedbackPregunta" class="feedback" tabindex="-1"></div>
         <div class="pregunta-acciones">
           <button class="btn btn-sec" id="btnAnterior" type="button">← Anterior</button>
           <button class="btn btn-primario" id="btnSiguiente" type="button">Siguiente →</button>
@@ -605,7 +931,7 @@ body.imprenta .ph{text-transform:none}
             <h2 id="h-articulo" class="articulo-titulo" tabindex="-1">Tu título aparecerá acá</h2>
             <p class="byline" id="byline">Por: Estudiante — ESRN Rural Virtual</p>
           </div>
-          <button class="btn btn-audio-suave" id="btnEscucharArticulo" type="button" aria-pressed="false">Escuchar artículo</button>
+          <button class="btn btn-audio-suave" id="btnEscucharArticulo" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-altavoz"></use></svg> Escuchar artículo</button>
         </div>
         <div class="progreso-articulo">
           <progress id="progArticulo" max="5" value="0">0 de 5</progress>
@@ -659,8 +985,13 @@ body.imprenta .ph{text-transform:none}
       titulo: 'El Aire y la Vida Subterránea',
       subtitulo: 'Física del Suelo y Gases',
       fuente: 'Clase N.º 10',
-      icono: '🌬️',
+      icono: 'i-aire',
       color: 'aire',
+      glosario: [
+        { t: 'Porosidad', d: 'Espacio entre las partículas del suelo que puede llenarse de aire o de agua.' },
+        { t: 'Respiración celular', d: 'Proceso que usa oxígeno para obtener energía; también ocurre en las raíces.' },
+        { t: 'Compactación', d: 'Pérdida de poros cuando el suelo se aprieta y expulsa el aire.' }
+      ],
       preguntas: [
         {
           id: 'q1', tipo: 'titulo',
@@ -736,8 +1067,13 @@ body.imprenta .ph{text-transform:none}
       titulo: 'El Agua en la Planta y el Suelo',
       subtitulo: 'Dinámica Hídrica',
       fuente: 'Clase N.º 11',
-      icono: '💧',
+      icono: 'i-agua',
       color: 'agua',
+      glosario: [
+        { t: 'Turgencia', d: 'Presión del agua que mantiene firmes las hojas y los tallos.' },
+        { t: 'Evapotranspiración', d: 'Agua que se evapora del suelo y la que transpira la planta.' },
+        { t: 'Riego por goteo', d: 'Riego localizado que lleva el agua directamente a la raíz.' }
+      ],
       preguntas: [
         {
           id: 'q1', tipo: 'titulo',
@@ -813,8 +1149,13 @@ body.imprenta .ph{text-transform:none}
       titulo: 'El Sol, el Calor y las Heladas',
       subtitulo: 'Física Ambiental',
       fuente: 'Clase N.º 13',
-      icono: '☀️',
+      icono: 'i-sol',
       color: 'sol',
+      glosario: [
+        { t: 'Radiación', d: 'Energía que viaja desde el Sol y llega a las plantas.' },
+        { t: 'Fotoperíodo', d: 'Relación entre las horas de luz y de oscuridad de un día.' },
+        { t: 'Helada', d: 'Descenso de temperatura por debajo de 0 °C que daña los tejidos.' }
+      ],
       preguntas: [
         {
           id: 'q1', tipo: 'titulo',
@@ -890,8 +1231,13 @@ body.imprenta .ph{text-transform:none}
       titulo: 'El Clima y los Cultivos en Río Negro',
       subtitulo: 'Sistemas Agrícolas',
       fuente: 'Clase N.º 14',
-      icono: '🌾',
+      icono: 'i-clima',
       color: 'clima',
+      glosario: [
+        { t: 'Clima árido', d: 'Clima con lluvias muy escasas y alta demanda de riego.' },
+        { t: 'Invernadero', d: 'Cubierta que retiene calor y protege del viento, el granizo y el frío.' },
+        { t: 'Cortina rompevientos', d: 'Plantación o barrera que reduce la fuerza del viento.' }
+      ],
       preguntas: [
         {
           id: 'q1', tipo: 'titulo',
@@ -967,8 +1313,14 @@ body.imprenta .ph{text-transform:none}
       titulo: 'El Suelo, la Nutrición y la Salud de la Tierra',
       subtitulo: 'Química y Manejo Agroecológico',
       fuente: 'Clase N.º 15',
-      icono: '🌱',
+      icono: 'i-suelo',
       color: 'suelo',
+      glosario: [
+        { t: 'Solución del suelo', d: 'Agua con nutrientes disueltos que las raíces pueden absorber.' },
+        { t: 'Clorosis', d: 'Amarillamiento de las hojas por falta de clorofila.' },
+        { t: 'Lixiviación', d: 'Arrastre de nutrientes hacia capas profundas por el agua.' },
+        { t: 'pH', d: 'Medida de acidez o alcalinidad que influye en la disponibilidad de nutrientes.' }
+      ],
       preguntas: [
         {
           id: 'q1', tipo: 'titulo',
@@ -1041,6 +1393,29 @@ body.imprenta .ph{text-transform:none}
     }
   ];
 
+  const EXPLICACIONES = {
+    '1:q2': 'El dióxido de carbono es la materia prima de la fotosíntesis: la planta lo toma del aire y libera oxígeno.',
+    '1:q3': 'Las raíces también respiran y necesitan oxígeno del suelo para obtener energía.',
+    '1:q4': 'Un suelo saludable combina aire y agua en sus poros; sin esa mezcla las raíces no pueden respirar ni absorber.',
+    '1:q5': 'Compactar o inundar el suelo expulsa el aire y deja a las raíces sin oxígeno.',
+    '2:q2': 'El agua transporta nutrientes, mantiene la planta firme y ayuda a regular su temperatura.',
+    '2:q3': 'La evapotranspiración suma el agua que se evapora del suelo y la que transpira la planta.',
+    '2:q4': 'El calor, el viento fuerte y el aire seco aumentan la pérdida de agua en nuestra zona.',
+    '2:q5': 'El riego por goteo lleva el agua directamente a la raíz y evita encharcar todo el suelo.',
+    '3:q2': 'El Sol llega por radiación y aporta la luz que la planta usa en la fotosíntesis.',
+    '3:q3': 'El fotoperíodo es la relación entre horas de luz y oscuridad que orienta la floración y el reposo.',
+    '3:q4': 'La temperatura se mide en grados Celsius; el calor es energía que se transfiere.',
+    '3:q5': 'El hielo rompe los tejidos de la planta y quema brotes y flores.',
+    '4:q2': 'Los valles de Río Negro reciben muy poca lluvia, por eso el riego artificial es indispensable.',
+    '4:q3': 'La cubierta del invernadero retiene calor y protege del viento, el granizo y el frío.',
+    '4:q4': 'Las cortinas rompevientos reducen la velocidad del viento y la deshidratación.',
+    '4:q5': 'Ventilar baja la temperatura y renueva el aire dentro del invernadero.',
+    '5:q2': 'La solución del suelo es agua con nutrientes disueltos; así las raíces pueden absorberlos.',
+    '5:q3': 'El nitrógeno forma clorofila y proteínas; su falta amarilla primero las hojas viejas.',
+    '5:q4': 'Un pH alcalino vuelve insolubles micronutrientes como el hierro y el zinc.',
+    '5:q5': 'El compost y las leguminosas aportan nutrientes sin contaminar las napas de agua.'
+  };
+
   let estado = cargarEstado();
   let timerGuardado = null;
   let audioToken = 0;
@@ -1049,9 +1424,9 @@ body.imprenta .ph{text-transform:none}
   const ui = { fragmentosPrevios: new Set(), animar: false, audioBtn: null };
   const AUDIO_TUTORIAL = [
     'La idea de esta actividad es que escribas tu propia guía de cultivos. Hay cinco capítulos. En cada uno vas a responder una pregunta por vez y tu artículo se va a ir armando con tus respuestas.',
-    'El objetivo de la actividad es investigar cómo el aire, el agua, el sol, el clima y el suelo influyen en los cultivos, y convertir lo aprendido en una guía escrita por todo el curso. Vas a comprender, escribir y compartir.',
+    'El objetivo es reconocer cómo el aire, el agua, el sol, el clima y el suelo afectan los cultivos. Con esas ideas vas a armar un artículo por capítulo y tu versión de la guía de cultivos.',
     'Hay cinco capítulos y podés empezar por cualquiera. Cada capítulo tiene seis preguntas y arma un artículo diferente. La barra de avance muestra cuántos capítulos completaste.',
-    'En cada pregunta elegís una opción. Si es correcta, se agrega una idea al artículo. Si te equivocás, podés pedir una pista o volver a intentar. El artículo se guarda automáticamente.',
+    'En cada pregunta elegís una opción. Si es correcta, se agrega una idea al artículo. Si te equivocás, podés pedir ayuda o volver a intentar. El artículo se guarda automáticamente.',
     'Al terminar un capítulo, tu artículo queda listo. Podés escucharlo, editarlo, copiarlo, descargarlo o imprimirlo. También podés sumarlo al libro del curso. Para empezar, activá el botón Comenzar la actividad.'
   ];
 
@@ -1093,7 +1468,7 @@ body.imprenta .ph{text-transform:none}
     const indicador = $('#estadoGuardado');
     try {
       localStorage.setItem(CLAVE, JSON.stringify(estado));
-      if (indicador) indicador.textContent = 'Guardado automático activo · ' + new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+      if (indicador) indicador.textContent = 'Guardado automático · ' + new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
     } catch (error) {
       if (indicador) indicador.textContent = 'No se pudo guardar en este dispositivo. La actividad sigue funcionando.';
     }
@@ -1106,6 +1481,10 @@ body.imprenta .ph{text-transform:none}
 
   function capPorId(id) {
     return CAPITULOS.find(c => c.id === Number(id));
+  }
+
+  function explicacionDe(cap, p) {
+    return cap && p ? (EXPLICACIONES[cap.id + ':' + p.id] || '') : '';
   }
 
   function respuestasDe(id) {
@@ -1512,7 +1891,7 @@ body.imprenta .ph{text-transform:none}
         const agregadas = contarFragmentos(c.id);
         const accion = completo ? 'Listo' : enCurso ? 'Seguir' : 'Empezar';
         return '<button class="tarjeta-cap ' + c.color + (completo ? ' completo' : '') + '" type="button" data-cap="' + c.id + '" aria-label="Capítulo ' + c.id + ': ' + escaparHTML(c.titulo) + '. ' + escaparHTML(c.subtitulo) + '. ' + accion + '. ' + agregadas + ' de 5 ideas agregadas. Abrir capítulo.">' +
-          '<span class="cap-icono" aria-hidden="true">' + c.icono + '</span>' +
+          '<span class="cap-icono" aria-hidden="true"><svg class="ico"><use href="#' + c.icono + '"></use></svg></span>' +
           '<span class="cap-info"><span class="cap-num">Capítulo ' + c.id + '</span><span class="cap-tit">' + c.titulo + '</span><span class="cap-sub">' + c.subtitulo + '</span></span>' +
           '<span class="cap-accion"><span class="cap-accion-texto">' + accion + '</span> <b aria-hidden="true">›</b></span>' +
           '</button>';
@@ -1530,7 +1909,7 @@ body.imprenta .ph{text-transform:none}
     const nombre = $('#nombre');
     if (nombre) nombre.value = estado.nombre;
     const guardado = $('#estadoGuardado');
-    if (guardado && !guardado.textContent.includes('No se pudo')) guardado.textContent = 'Guardado automático activo';
+    if (guardado && !guardado.textContent.includes('No se pudo')) guardado.textContent = 'Guardado automático';
     actualizarBotonImprimir();
   }
 
@@ -1541,6 +1920,8 @@ body.imprenta .ph{text-transform:none}
     if (etiqueta) etiqueta.textContent = 'Capítulo ' + cap.id;
     const h = $('#h-capitulo');
     if (h) h.textContent = cap.titulo;
+    const icono = $('#capIcono');
+    if (icono) icono.innerHTML = '<svg class="ico" aria-hidden="true"><use href="#' + cap.icono + '"></use></svg>';
     const prog = $('#progCapitulo');
     if (prog) prog.max = cap.preguntas.length;
     renderPregunta({ focus: false, animar: false });
@@ -1573,11 +1954,11 @@ body.imprenta .ph{text-transform:none}
       const intentos = (r._intentos && r._intentos[p.id]) || 0;
       const pistaAbierta = intentos > 0;
       let extra = '<div class="pista-caja">' +
-        '<button type="button" class="btn-pista" data-accion="pista" aria-expanded="' + (pistaAbierta ? 'true' : 'false') + '" aria-controls="pista-' + p.id + '">' + (pistaAbierta ? 'Ocultar pista' : 'Ver pista') + '</button>' +
+        '<button type="button" class="btn-pista" data-accion="pista" aria-expanded="' + (pistaAbierta ? 'true' : 'false') + '" aria-controls="pista-' + p.id + '">' + (pistaAbierta ? 'Ocultar ayuda' : 'Necesito una mano') + '</button>' +
         '<p id="pista-' + p.id + '" class="pista"' + (pistaAbierta ? '' : ' hidden') + '>' + p.pista + '</p>' +
         '</div>';
       if (!respondida && intentos >= 2) {
-        extra += '<button type="button" class="btn-revelar" data-accion="revelar" aria-label="Resolver con ayuda: mostrar la respuesta correcta">Resolver con ayuda</button>';
+        extra += '<button type="button" class="btn-revelar" data-accion="revelar" aria-label="Mostrame la respuesta y por qué">Mostrame la respuesta y por qué</button>';
       }
       return '<fieldset class="grupo-opciones"><legend class="sr-only">Opciones de respuesta</legend>' + opciones + '</fieldset>' + extra;
     }
@@ -1626,6 +2007,13 @@ body.imprenta .ph{text-transform:none}
     if (h) h.innerHTML = p.enunciado;
     const ayuda = $('#ayudaPregunta');
     if (ayuda) ayuda.textContent = p.tipo === 'opcion' ? '' : (p.ayuda || '');
+    const glosario = $('#glosarioCapitulo');
+    const glosarioLista = $('#glosarioLista');
+    if (glosario && glosarioLista) {
+      const terminos = Array.isArray(cap.glosario) ? cap.glosario : [];
+      glosario.hidden = terminos.length === 0;
+      glosarioLista.innerHTML = terminos.map(t => '<div class="glosario-item"><dt>' + escaparHTML(t.t) + '</dt><dd>' + escaparHTML(t.d) + '</dd></div>').join('');
+    }
     const form = $('#formPregunta');
     if (form) form.innerHTML = formularioHTML(p, r, respondida);
 
@@ -1634,17 +2022,19 @@ body.imprenta .ph{text-transform:none}
       fb.className = 'feedback';
       fb.innerHTML = '';
       if (respondida) {
+        const exp = explicacionDe(cap, p);
         if (p.tipo === 'titulo') {
-          mostrarFeedback('ok', 'Título agregado.');
+          mostrarFeedback('ok', 'Título elegido. Ya podés verlo en tu artículo.');
         } else if (p.tipo === 'recomendacion') {
-          mostrarFeedback('ok', 'Consejo agregado.');
+          mostrarFeedback('ok', 'Consejo agregado. Tu artículo cierra con una recomendación concreta.');
         } else if (r._reveladas && r._reveladas[p.id]) {
-          mostrarFeedback('aviso', 'Resuelta con ayuda.');
+          const idxCorrecta = opcionesVisibles(p).findIndex(o => o.correcta);
+          mostrarFeedback('aviso', 'La respuesta es ' + letra(idxCorrecta) + '. ' + (exp ? exp + ' ' : '') + 'La idea se agregó con ayuda.');
         } else {
-          mostrarFeedback('ok', '¡Correcto! Idea agregada.');
+          mostrarFeedback('ok', exp ? '¡Bien! ' + exp + ' La idea ya está en tu artículo.' : '¡Bien! Idea agregada.');
         }
       } else if (p.tipo === 'opcion' && r._intentos && r._intentos[p.id]) {
-        mostrarFeedback('aviso', 'Todavía no. Mirá la pista.');
+        mostrarFeedback('aviso', 'Esa opción no es la correcta. Podés abrir una pista o intentar de nuevo.');
       }
     }
 
@@ -1708,6 +2098,8 @@ body.imprenta .ph{text-transform:none}
     }
 
     const completo = capituloCompleto(cap.id);
+    const etiquetaArticulo = $('#panelArticulo .etiqueta');
+    if (etiquetaArticulo) etiquetaArticulo.textContent = completo ? 'Mi artículo terminado' : 'Mi artículo en construcción';
     const acciones = $('#accionesArticulo');
     const editorCont = $('#editorContenedor');
     if (acciones) {
@@ -2021,22 +2413,18 @@ body.imprenta .ph{text-transform:none}
             label.appendChild(marca);
           }
         }
-        mostrarFeedback('mal', 'Todavía no. Mirá la pista y probá otra vez.');
-        const pista = document.getElementById('pista-' + p.id);
-        if (pista) pista.hidden = false;
-        const btnPista = $('.btn-pista');
-        if (btnPista) { btnPista.setAttribute('aria-expanded', 'true'); btnPista.textContent = 'Ocultar pista'; }
+        mostrarFeedback('mal', 'Esa opción no es la correcta. Revisá la pregunta, abrí una pista o probá otra vez.');
         if (r._intentos[p.id] >= 2 && !$('[data-accion="revelar"]')) {
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'btn-revelar';
           btn.dataset.accion = 'revelar';
-          btn.textContent = 'Resolver con ayuda';
-          btn.setAttribute('aria-label', 'Resolver con ayuda: mostrar la respuesta correcta');
+          btn.textContent = 'Mostrame la respuesta y por qué';
+          btn.setAttribute('aria-label', 'Mostrame la respuesta y por qué');
           const form = $('#formPregunta');
           if (form) form.appendChild(btn);
         }
-        anunciar('Respuesta incorrecta. Podés ver la pista o intentar de nuevo.');
+        anunciar('Respuesta incorrecta. Podés abrir una pista o intentar de nuevo.');
       }
       return;
     }
@@ -2191,7 +2579,7 @@ body.imprenta .ph{text-transform:none}
     });
     const btnAyudaAudio = $('#btnAyudaAudio');
     if (btnAyudaAudio) btnAyudaAudio.addEventListener('click', () => {
-      hablar(paraAudio('Ayuda. Elegí un capítulo. Respondé una pregunta por vez. Cada respuesta correcta agrega una parte de tu artículo. Podés usar las flechas y la tecla Enter para elegir opciones. Si te equivocás, podés ver una pista o resolver la pregunta con ayuda. Al terminar, podés escuchar, editar, copiar, descargar e imprimir tu artículo.'), btnAyudaAudio);
+      hablar(paraAudio('Ayuda. Elegí un capítulo. Respondé una pregunta por vez. Cada respuesta correcta agrega una parte de tu artículo. Podés usar las flechas y la tecla Enter para elegir opciones. Si te equivocás, podés pedir ayuda o resolver la pregunta paso a paso. Al terminar, podés escuchar, editar, copiar, descargar e imprimir tu artículo.'), btnAyudaAudio);
     });
     const btnEscucharMenu = $('#btnEscucharMenu');
     if (btnEscucharMenu) btnEscucharMenu.addEventListener('click', () => {
@@ -2272,7 +2660,7 @@ body.imprenta .ph{text-transform:none}
         const abrir = pista.hidden;
         pista.hidden = !abrir;
         btn.setAttribute('aria-expanded', abrir ? 'true' : 'false');
-        btn.textContent = abrir ? 'Ocultar pista' : 'Ver pista';
+        btn.textContent = abrir ? 'Ocultar ayuda' : 'Necesito una mano';
         return;
       }
       if (accion === 'revelar') { revelarRespuesta(); return; }
